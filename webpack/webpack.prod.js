@@ -1,7 +1,8 @@
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
-module.exports = {
+module.exports = new SpeedMeasurePlugin().wrap({
   mode: 'production',
   devtool: 'source-map',
   plugins: [
@@ -10,4 +11,4 @@ module.exports = {
     // }),
     new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
   ],
-};
+});

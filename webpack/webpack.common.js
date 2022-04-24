@@ -1,4 +1,7 @@
 const path = require('path');
+
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -16,23 +19,32 @@ module.exports = {
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'], // 나열한 확장자를 순서대로 해석, import 할 때 확장자 생략 가능
+    alias: {
+      '@': path.resolve(__dirname, '..', 'src'),
+    },
   },
+
+  cache: {
+    type: 'filesystem',
+  },
+
+  stats: 'errors-warnings',
 
   module: {
     // loaders
     rules: [
       {
         test: /\.(ts|js)x?$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-          },
-        ],
+        include: path.resolve(__dirname, '..', 'src'),
+        loader: 'esbuild-loader',
+        options: {
+          loader: 'tsx',
+          target: 'es2015',
+        },
       },
       {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.(css|scss)$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -45,13 +57,27 @@ module.exports = {
     ],
   },
 
+  optimization: {
+    minimizer: [
+      new ESBuildMinifyPlugin({
+        target: 'es2015',
+        css: true,
+      }),
+    ],
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Webpack Basic',
       filename: 'index.html',
       template: 'src/templates/template.html',
     }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+      chunkFilename: '[name].css',
+    }),
   ],
-
-  stats: 'errors-only',
 };

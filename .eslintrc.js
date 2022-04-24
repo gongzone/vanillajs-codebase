@@ -16,6 +16,7 @@ module.exports = {
     'airbnb-typescript/base',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:import/recommended',
     'prettier',
     'plugin:prettier/recommended',
   ],
@@ -26,5 +27,13 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
+  },
+
+  settings: {
+    'import/resolver': {
+      webpack: {
+        config: 'webpack/webpack.common.js',
+      },
+    },
   },
 };
