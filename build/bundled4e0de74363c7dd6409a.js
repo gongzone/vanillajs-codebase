@@ -1,0 +1,3 @@
+(()=>{"use strict";var a={};const n={inventory:{}},i=(e,t)=>{const c=n.inventory[e]||0;n.inventory[e]=c+t},r=e=>{const t=document.getElementById("item-list");t.innerHTML="",Object.entries(e).forEach(([c,s])=>{const o=document.createElement("li");o.innerHTML=`${c} - Quantity: ${s}`,t==null||t.appendChild(o)})};i("cheesecake",3),i("apple pie",8),i("carrot cake",7),r(n.inventory)})();
+
+//# sourceMappingURL=bundled4e0de74363c7dd6409a.js.map

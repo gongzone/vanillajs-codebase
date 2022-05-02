@@ -1,3 +1,5 @@
+const { off } = require('process');
+
 module.exports = {
   parser: '@typescript-eslint/parser',
 
@@ -24,9 +26,12 @@ module.exports = {
   rules: {
     'no-unused-vars': 'warn',
     'no-console': 'off',
+    'no-plusplus': 'off',
+    'import/first': 'off',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
   },
 
   settings: {
