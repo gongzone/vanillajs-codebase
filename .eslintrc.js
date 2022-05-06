@@ -21,6 +21,7 @@ module.exports = {
     'plugin:import/recommended',
     'prettier',
     'plugin:prettier/recommended',
+    'plugin:jest-dom/recommended',
   ],
 
   rules: {

@@ -5,6 +5,11 @@ const updateItemList = (inventory: { [key: string]: number }) => {
   Object.entries(inventory).forEach(([itemName, quantity]) => {
     const listItem = document.createElement('li');
     listItem.innerHTML = `${itemName} - Quantity: ${quantity}`;
+
+    if (quantity < 5) {
+      listItem.classList.add('almost-soldout');
+    }
+
     inventoryList?.appendChild(listItem);
   });
 

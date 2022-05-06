@@ -1,29 +1,46 @@
 import * as fs from 'fs';
 import path from 'path';
+import { screen, getByText } from '@testing-library/dom';
 
-const html = fs.readFileSync(path.resolve(__dirname, './templates/template.html'), 'utf-8');
-document.body.innerHTML = html;
+const initialHtml = fs.readFileSync(path.resolve(__dirname, './templates/template.html'), 'utf-8');
+
+beforeEach(() => {
+  document.body.innerHTML = initialHtml;
+});
 
 import { updateItemList } from '@/domController';
 
 describe('updateItemList', () => {
-  test('updates the Dom with the inventory items', () => {
+  test('updates the DOM with the inventory items', () => {
     const inventory = {
       cheesecake: 5,
       'apple pie': 2,
       'carrot cake': 6,
     };
-
     updateItemList(inventory);
 
-    const itemList = document.getElementById('item-list');
-    expect(itemList?.childNodes).toHaveLength(3);
+    const itemList = document.getElementById('item-list')!;
+    expect(getByText(itemList, 'apple pie - Quantity: 2')).toBeInTheDocument();
+    expect(getByText(itemList, 'carrot cake - Quantity: 6')).toBeInTheDocument();
+  });
 
-    const nodesText = Array.from(itemList!.childNodes as NodeListOf<HTMLElement>).map(
-      (node) => node.innerHTML
-    );
-    expect(nodesText).toContain('cheesecake - Quantity: 5');
-    expect(nodesText).toContain('apple pie - Quantity: 2');
-    expect(nodesText).toContain('carrot cake - Quantity: 6');
+  test('adding a paragraph indicating what was the update', () => {
+    const inventory = { cheesecake: 5, 'apple pie': 2 };
+    updateItemList(inventory);
+
+    expect(
+      screen.getByText(`The inventory has been updated - ${JSON.stringify(inventory)}`)
+    ).toBeInTheDocument();
+  });
+
+  test('highlighting in red elements whose quntity is below five', () => {
+    const inventory = {
+      cheesecake: 5,
+      'apple pie': 2,
+      'carrot cake': 6,
+    };
+    updateItemList(inventory);
+
+    expect(screen.getByText('apple pie - Quantity: 2')).toHaveStyle({ color: 'red' });
   });
 });
