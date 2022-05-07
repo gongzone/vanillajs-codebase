@@ -42,4 +42,13 @@ module.exports = {
       },
     },
   },
+
+  overrides: [
+    {
+      parserOptions: { project: './cypress/tsconfig.json' },
+      extends: ['plugin:cypress/recommended'],
+      files: ['cypress/**/*.ts'],
+      rules: {},
+    },
+  ],
 };
