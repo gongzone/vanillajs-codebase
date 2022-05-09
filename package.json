@@ -1,8 +1,5 @@
 {
-  "name": "webpack-basic",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
+  "name": "vanillajs",
   "scripts": {
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
     "build": "webpack --config webpack/webpack.config.js --env env=prod",
@@ -13,9 +10,6 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "jsdom": "^19.0.0"
   },

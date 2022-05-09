@@ -10348,6 +10348,53 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vanillajs@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "vanillajs@workspace:."
+  dependencies:
+    "@testing-library/dom": ^8.13.0
+    "@testing-library/jest-dom": ^5.16.4
+    "@types/jest": ^27.4.1
+    "@types/jsdom": ^16.2.14
+    "@types/node": ^17.0.30
+    "@types/testing-library__jest-dom": ^5.14.3
+    "@typescript-eslint/eslint-plugin": ^5.18.0
+    "@typescript-eslint/parser": ^5.18.0
+    css-loader: ^6.7.1
+    cypress: ^9.6.0
+    esbuild: ^0.14.38
+    esbuild-jest: ^0.5.0
+    esbuild-loader: ^2.18.0
+    eslint: ^8.13.0
+    eslint-config-airbnb-base: ^15.0.0
+    eslint-config-airbnb-typescript: ^17.0.0
+    eslint-config-prettier: ^8.5.0
+    eslint-import-resolver-webpack: ^0.13.2
+    eslint-plugin-cypress: ^2.12.1
+    eslint-plugin-import: ^2.26.0
+    eslint-plugin-jest-dom: ^4.0.1
+    eslint-plugin-prettier: ^4.0.0
+    html-webpack-plugin: ^5.5.0
+    husky: ^7.0.4
+    jest: 27.5.1
+    jest-extended: ^2.0.0
+    jsdom: ^19.0.0
+    lint-staged: ^12.3.7
+    mini-css-extract-plugin: ^2.6.0
+    prettier: ^2.6.2
+    sass: ^1.50.0
+    sass-loader: ^12.6.0
+    speed-measure-webpack-plugin: ^1.5.0
+    ts-jest: ^27.1.4
+    typescript: ^4.6.3
+    webpack: ^5.72.0
+    webpack-bundle-analyzer: ^4.5.0
+    webpack-cli: ^4.9.2
+    webpack-dev-server: ^4.8.1
+    webpack-merge: ^5.8.0
+  languageName: unknown
+  linkType: soft
+
 "vary@npm:~1.1.2":
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
@@ -10441,53 +10488,6 @@ __metadata:
   checksum: f05588567a2a76428515333eff87200fae6c83c3948a7482ebb109562971e77ef6dc49749afa58abb993391227c5697b3ecca52018793e0cb4620a48f10bd21b
   languageName: node
   linkType: hard
-
-"webpack-basic@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "webpack-basic@workspace:."
-  dependencies:
-    "@testing-library/dom": ^8.13.0
-    "@testing-library/jest-dom": ^5.16.4
-    "@types/jest": ^27.4.1
-    "@types/jsdom": ^16.2.14
-    "@types/node": ^17.0.30
-    "@types/testing-library__jest-dom": ^5.14.3
-    "@typescript-eslint/eslint-plugin": ^5.18.0
-    "@typescript-eslint/parser": ^5.18.0
-    css-loader: ^6.7.1
-    cypress: ^9.6.0
-    esbuild: ^0.14.38
-    esbuild-jest: ^0.5.0
-    esbuild-loader: ^2.18.0
-    eslint: ^8.13.0
-    eslint-config-airbnb-base: ^15.0.0
-    eslint-config-airbnb-typescript: ^17.0.0
-    eslint-config-prettier: ^8.5.0
-    eslint-import-resolver-webpack: ^0.13.2
-    eslint-plugin-cypress: ^2.12.1
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest-dom: ^4.0.1
-    eslint-plugin-prettier: ^4.0.0
-    html-webpack-plugin: ^5.5.0
-    husky: ^7.0.4
-    jest: 27.5.1
-    jest-extended: ^2.0.0
-    jsdom: ^19.0.0
-    lint-staged: ^12.3.7
-    mini-css-extract-plugin: ^2.6.0
-    prettier: ^2.6.2
-    sass: ^1.50.0
-    sass-loader: ^12.6.0
-    speed-measure-webpack-plugin: ^1.5.0
-    ts-jest: ^27.1.4
-    typescript: ^4.6.3
-    webpack: ^5.72.0
-    webpack-bundle-analyzer: ^4.5.0
-    webpack-cli: ^4.9.2
-    webpack-dev-server: ^4.8.1
-    webpack-merge: ^5.8.0
-  languageName: unknown
-  linkType: soft
 
 "webpack-bundle-analyzer@npm:^4.5.0":
   version: 4.5.0
